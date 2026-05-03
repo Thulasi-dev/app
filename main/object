@@ -1,0 +1,59 @@
+Objects:
+  Property
+  Tenant
+  Tenant_Property 
+  Lease Agreement
+  Vendor
+  Maintenance Request
+
+1. Property__c
+
+Fields:
+
+  Name
+  Address__c
+  City__c
+  State__c
+  PostalCode__c
+  Country__c
+  Type__c (Picklist)
+  Furnishing_Status__c (Picklist)
+  Status__c (Picklist)
+  Rent__c (Currency)
+  Description__c (Long Text)
+
+2. Tenant
+
+  Name
+  Phone 
+  Email
+
+3. Tenant Property
+
+  Tenant
+  Property
+
+4. Lease Agreement
+
+  Property
+  Tenant
+  Terms
+  Monthly Rent
+  Start Date
+  End Date
+
+5. Vendor
+
+  Phone
+  Email
+
+6. Maintenance Request
+
+  Property
+  Vendor
+  Status
+  Description
+
+
+  
+
