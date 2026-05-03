@@ -1,0 +1,42 @@
+@isTest
+public class PropertyTestClass {
+
+    @isTest
+    static void testTriggers() {
+
+        // Create Vendor
+        Vendor__c v = new Vendor__c(Name='Test Vendor');
+        insert v;
+
+        // Create Property
+        Property__c p = new Property__c(
+            Name='Test Property',
+            City__c='Chennai',
+            State__c='TN',
+            Postal_Code__c='600001',
+            Country__c='India',
+            Status__c='Available',
+            Rent__c=10000
+        );
+        insert p;
+
+        // Create Tenant
+        Tenant__c t = new Tenant__c(Name='Test Tenant');
+        insert t;
+
+        // Link Tenant & Property (Trigger test)
+        Tenant_Property__c tp = new Tenant_Property__c(
+            Tenant__c = t.Id,
+            Property__c = p.Id
+        );
+        insert tp;
+
+        // Maintenance Request (Vendor auto assign)
+        Maintenance_Request__c mr = new Maintenance_Request__c(
+            Name='MR-Test',
+            Property__c = p.Id,
+            Status__c='Open'
+        );
+        insert mr;
+    }
+}
